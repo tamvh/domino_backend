@@ -7636,3 +7636,4 @@ java.net.BindException: Address already in use
 2017-11-09 16:15:58  INFO local:839 - local: Destroyed connection
 2017-11-09 16:15:58  INFO local:839 - local: Destroyed connection
 2017-11-09 16:15:58  INFO local:839 - local: Destroyed connection
+2017-11-09 16:21:03  INFO local:839 - local: Destroyed connection
