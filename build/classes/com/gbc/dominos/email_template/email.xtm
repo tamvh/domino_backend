@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Email</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <div style="font-family: Verdana, Geneva, sans-serif; font-size: 14px;">
+            <div class="row">
+                <p>Kính gửi các anh/chị,<br><br>
+                Hệ thống DOMINOS' PIZZA xảy ra lỗi, vui lòng kiểm tra lại.
+                </p>
+            </div>
+            <div class="row">
+                <p>Chi nhánh: {{ BRANCH }} </p>
+            </div>
+            <div class="row">
+                <p>Lỗi: telnet không có phản hồi từ server của dominos, host: {{ HOST }}, port: {{ PORT }} </p>                
+            </div>
+	</div>
+    </body>
+</html>
+
+

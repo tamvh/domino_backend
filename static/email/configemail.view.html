@@ -1,0 +1,110 @@
+<div id="wrapper">
+    <div class="container body">
+        <div class="main_container">
+            <div ng-include src="loadSidebarTemplate"></div> 
+            <!-- top -->
+            <div ng-include src="loadHeaderTemplate"></div> 
+            <!-- main content -->
+            <div class="right_col" role="main">                     
+                <div class="">                        
+                    <div class="row">
+                        <div class="x_panel ">
+                            <div class="x_content"> 
+                                <div class="row" >                   
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg" ng-click="openPopupAddEmail()"><i class="fa fa-plus"></i> Add email </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-condensed table-striped jambo_table">
+                                        <thead>
+                                            <tr>                
+                                                <th class="col-md-1 col-xs-1 col-sm-1">STT</th>
+                                                <th class="col-md-3 col-xs-3 col-sm-3">Email</th>
+                                                <th class="col-md-4 col-xs-4 col-sm-4">Họ tên</th>                                          
+                                                <th class="col-md-2 col-xs-2 col-sm-2">SĐT</th>                     
+                                                <th class="col-md-2 col-xs-2 col-sm-2">Chức năng</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in listemail">
+                                                <td class="col-md-1 col-xs-1 col-sm-1">{{ $index+1 }}</td>
+                                                <td class="col-md-3 col-xs-3 col-sm-3">{{ item.email }}</td>
+                                                <td class="col-md-4 col-xs-4 col-sm-4">{{ item.name }}</td>
+                                                <td class="col-md-2 col-xs-2 col-sm-2">{{ item.phone }}</td>
+                                                <td class="col-md-2 col-xs-2 col-sm-2">
+                                                    <div ng-click="deleteEmail(item)">
+                                                        <i class="fa fa-remove"></i>
+                                                    </div> 
+                                                </td>  
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" class="text-center" ng-show="listemail.length === 0">
+                                                    <p  style="color:red;">Danh sách email trống</p>                    
+                                                </td>
+                                            </tr>
+                                        </tfoot>  
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>        
+    </div>    
+</div>
+<script type="text/ng-template" id="PopupAddItem.html">
+    <form name="addForm">
+        <div class="modal-header">
+            <h3 class="modal-title">Thêm Email</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                 <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <label>Email:</label> 
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" name="email" class="form-control" ng-model="newItem.email">
+                        <span class="red" ng-show="errEmailIsNull">Không được để trống. Vui lòng nhập lại</span>
+                    </div>
+                </div>                                             
+            </div>
+            <div class="form-group">
+                 <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <label>Họ tên:</label> 
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" name="name" class="form-control" ng-model="newItem.name">
+                        <span class="red" ng-show="errNameIsNull">Không được để trống. Vui lòng nhập lại</span>
+                    </div>
+                </div>                                             
+            </div>
+            <div class="form-group">
+                 <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <label>SĐT: </label> 
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" name="phone" class="form-control" ng-model="newItem.phone">
+                    </div>
+                </div>                                             
+            </div>
+        </div>
+        <div class="modal-footer form-group">
+            <div class="row">
+                <div class="col-md-5 col-xs-5 col-sm-5"><p style="color:red; font-style: italic; margin-top:5px;">(*)Cần cập nhật thông tin đầy đủ</p>
+                </div>
+                <div class="col-md-7 col-xs-7 col-sm-7">
+                    <button class="btn btn-primary" type="submit" ng-click="ok()">Lưu</button>
+                    <button class="btn btn-warning" type="submit" ng-click="cancel()">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>

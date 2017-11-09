@@ -1,0 +1,49 @@
+<div id="wrapper">
+    <div class="container body">
+        <div class="main_container">
+            <div ng-include src="loadSidebarTemplate"></div> 
+            <!-- top -->
+            <div ng-include src="loadHeaderTemplate"></div> 
+            <!-- main content -->
+            <div class="right_col" role="main">                     
+                <div class="">                        
+                    <div class="row">
+                        <div class="x_panel ">
+                            <div class="x_content"> 
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-condensed table-striped jambo_table">
+                                        <thead>
+                                            <tr>                
+                                                <th class="col-md-1 col-xs-1 col-sm-1">STT</th>
+                                                <th class="col-md-2 col-xs-2 col-sm-2">Email</th>
+                                                <th class="col-md-3 col-xs-3 col-sm-3">Chủ đề</th>                                          
+                                                <th class="col-md-4 col-xs-4 col-sm-4">Nội dung</th>                     
+                                                <th class="col-md-2 col-xs-2 col-sm-2">Thời gian</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in listhistorysendemail">
+                                                <td class="col-md-1 col-xs-1 col-sm-1">{{ $index+1 }}</td>
+                                                <td class="col-md-2 col-xs-2 col-sm-2">{{ item.email }}</td>
+                                                <td class="col-md-3 col-xs-3 col-sm-3">{{ item.subject }}</td>
+                                                <td class="col-md-4 col-xs-4 col-sm-4">{{ item.content }}</td>
+                                                <td class="col-md-2 col-xs-2 col-sm-2">{{ item.time_send_email }}</td>  
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" class="text-center" ng-show="listhistorysendemail.length === 0">
+                                                    <p  style="color:red;">Không có lịch sử gửi Email</p>                    
+                                                </td>
+                                            </tr>
+                                        </tfoot>  
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>        
+    </div>    
+</div>
